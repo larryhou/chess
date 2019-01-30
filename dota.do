@@ -5,6 +5,8 @@ gen as = real(regexr(regexr(attack_speed, "^.+\(", ""), "s?\).*$", ""))
 drop attack_speed
 rename as attack_speed
 
+gsort + cost - attack_lv1_l - life_lv1
+
 ds, has(type numeric)
 quiet foreach stat of varlist `r(varlist)' {
 	sum `stat'
